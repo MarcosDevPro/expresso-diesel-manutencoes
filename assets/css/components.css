@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Expresso Diesel — components.css
+   Componentes reutilizáveis, nomeados no padrão BEM.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Ícone
+   -------------------------------------------------------------------------- */
+.icone {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--cor-vermelho);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.icone--branco {
+  stroke: var(--cor-branco);
+}
+
+.icone--claro {
+  stroke: #fff;
+}
+
+.icone--cinza {
+  stroke: var(--cor-cinza);
+}
+
+.icone--pequeno {
+  width: 18px;
+  height: 18px;
+}
+
+.icone--grande {
+  width: 38px;
+  height: 38px;
+}
+
+/* --------------------------------------------------------------------------
+   Botão
+   -------------------------------------------------------------------------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--esp-xs);
+  padding: 0.75rem 1.4rem;
+  border: 1.5px solid var(--cor-vermelho);
+  border-radius: var(--raio-pill);
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition:
+    background-color var(--transicao),
+    color var(--transicao),
+    border-color var(--transicao);
+}
+
+.botao--solido {
+  background-color: var(--cor-vermelho);
+  color: #fff;
+}
+
+.botao--solido:hover {
+  background-color: var(--cor-vermelho-escuro);
+  border-color: var(--cor-vermelho-escuro);
+}
+
+.botao--contorno {
+  background-color: transparent;
+  color: var(--cor-vermelho);
+}
+
+.botao--contorno:hover {
+  background-color: var(--cor-vermelho);
+  color: #fff;
+}
+
+.botao--contorno:hover .icone {
+  stroke: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Marca (logotipo + assinatura)
+   -------------------------------------------------------------------------- */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.marca__simbolo {
+  /* Altura da imagem do logo; largura livre para respeitar a
+     proporção do arquivo. Ajuste apenas este valor para redimensionar. */
+  height: 72px;
+  width: auto;
+}
+
+.marca__nome {
+  display: block;
+  font-size: 2rem;
+  font-weight: var(--peso-forte);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.marca__assinatura {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.68rem;
+  font-weight: var(--peso-medio);
+  letter-spacing: 0.12em;
+  color: var(--cor-cinza);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Título de seção
+   -------------------------------------------------------------------------- */
+.titulo-secao {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-md);
+  padding-left: 1.1rem;
+  border-left: 4px solid var(--cor-vermelho);
+}
+
+.titulo-secao--espacada {
+  margin-bottom: var(--esp-md);
+}
+
+.titulo-secao__texto {
+  font-size: var(--texto-xl);
+}
+
+.titulo-secao__traco {
+  width: 120px;
+  height: 3px;
+  background-color: var(--cor-vermelho);
+}
+
+/* --------------------------------------------------------------------------
+   Card de serviço
+   -------------------------------------------------------------------------- */
+.card-servico {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1.6rem 1.4rem;
+  background-color: var(--cor-branco);
+  color: #161616;
+  border-radius: var(--raio);
+  text-align: center;
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+.card-servico:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.card-servico__icone {
+  width: 34px;
+  height: 34px;
+  margin-bottom: var(--esp-sm);
+}
+
+.card-servico__titulo {
+  display: flex;
+  align-items: center;
+  /* Reserva espaço para 2 linhas, para todos os títulos terminarem
+     na mesma altura mesmo com textos curtos. */
+  min-height: 2.6rem;
+  margin-bottom: var(--esp-xs);
+  font-size: 0.95rem;
+}
+
+.card-servico__descricao {
+  font-size: var(--texto-sm);
+  color: var(--cor-cinza-texto);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Item de diferencial (lista de benefícios)
+   -------------------------------------------------------------------------- */
+.diferencial {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--esp-sm);
+  padding-bottom: var(--esp-md);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.diferencial:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.diferencial__icone {
+  margin-top: 2px;
+}
+
+.diferencial__titulo {
+  margin-bottom: 2px;
+  font-size: 0.95rem;
+  text-transform: none;
+}
+
+.diferencial__texto {
+  font-size: var(--texto-sm);
+  color: var(--cor-cinza-texto);
+}
+
+/* --------------------------------------------------------------------------
+   Campo de formulário
+   -------------------------------------------------------------------------- */
+.campo {
+  margin-bottom: var(--esp-sm);
+}
+
+.campo__rotulo {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--cor-cinza);
+}
+
+.campo__controle {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  background-color: var(--cor-preto-elevado);
+  border: 1px solid var(--cor-linha);
+  border-radius: 4px;
+  color: var(--cor-branco);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+
+.campo__controle::placeholder {
+  color: #6a6a68;
+}
+
+textarea.campo__controle {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.campo__erro {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: var(--texto-xs);
+  color: var(--cor-vermelho);
+}
+
+.campo__controle[aria-invalid="true"] {
+  border-color: var(--cor-vermelho);
+}
+
+.form-status {
+  margin-top: var(--esp-sm);
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--cor-vermelho);
+  background-color: var(--cor-preto-elevado);
+  font-size: 0.9rem;
+}
+
+.form-status[hidden] {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Botão flutuante de WhatsApp
+   -------------------------------------------------------------------------- */
+.whatsapp-flutuante {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: var(--cor-vermelho);
+  border-radius: 50%;
+  box-shadow: var(--sombra);
+  transition: transform var(--transicao);
+}
+
+.whatsapp-flutuante:hover {
+  transform: scale(1.06);
+}

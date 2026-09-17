@@ -1,0 +1,525 @@
+/* ==========================================================================
+   Expresso Diesel — layout.css
+   Estrutura das seções da página e regras responsivas.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Cabeçalho / navegação
+   -------------------------------------------------------------------------- */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--cor-preto);
+  border-bottom: 1px solid var(--cor-linha);
+}
+
+.cabecalho__interno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-sm);
+  padding-block: 1.4rem;
+}
+
+.menu__lista {
+  display: flex;
+  gap: 2.1rem;
+}
+
+.menu__link {
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  font-size: var(--texto-sm);
+  font-weight: var(--peso-medio);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition:
+    color var(--transicao),
+    border-color var(--transicao);
+}
+
+.menu__link:hover,
+.menu__link[aria-current="page"] {
+  color: var(--cor-vermelho);
+  border-bottom-color: var(--cor-vermelho);
+}
+
+.menu-toggle {
+  display: none;
+  padding: 0.35rem;
+  background: none;
+  border: none;
+  color: var(--cor-branco);
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 560px;
+  border-bottom: 1px solid var(--cor-linha);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero__fundo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__fundo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Degradê sobre a foto para manter o texto legível */
+.hero__fundo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 13, 0.96) 0%,
+    rgba(13, 13, 13, 0.85) 35%,
+    rgba(13, 13, 13, 0.35) 70%,
+    rgba(13, 13, 13, 0.05) 100%
+  );
+}
+
+.hero__interno {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--esp-xl);
+}
+
+.hero__conteudo {
+  max-width: 640px;
+  padding-left: 1.3rem;
+  border-left: 4px solid var(--cor-vermelho);
+}
+
+.hero__titulo {
+  font-size: var(--texto-2xl);
+}
+
+.hero__texto {
+  margin-top: var(--esp-md);
+  max-width: 44ch;
+  color: #d3d2cf;
+  line-height: 1.65;
+}
+
+.hero__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: var(--esp-md);
+}
+
+/* --------------------------------------------------------------------------
+   Seção genérica
+   -------------------------------------------------------------------------- */
+.secao {
+  padding-block: var(--esp-xl);
+  border-bottom: 1px solid var(--cor-linha);
+}
+
+.secao__cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-md);
+  margin-bottom: var(--esp-lg);
+}
+
+.secao__apoio {
+  max-width: 36ch;
+  color: var(--cor-cinza);
+  font-size: 0.92rem;
+}
+
+/* --------------------------------------------------------------------------
+   Serviços
+   -------------------------------------------------------------------------- */
+.servicos__grade {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 1.75rem;
+}
+
+/* O <li> vira container flex para o card dentro dele estirar e ocupar
+   a mesma altura em toda a linha, mesmo com textos diferentes. */
+.servicos__grade > li {
+  display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   Chamada "Mecânico, associe-se"
+   -------------------------------------------------------------------------- */
+.associacao {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  padding-block: var(--esp-lg);
+  border-bottom: 1px solid var(--cor-linha);
+  overflow: hidden;
+}
+
+.associacao__fundo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.associacao__fundo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.associacao__fundo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(13, 13, 13, 0.94) 0%,
+    rgba(13, 13, 13, 0.75) 42%,
+    rgba(13, 13, 13, 0.3) 75%,
+    rgba(13, 13, 13, 0.1) 100%
+  );
+}
+
+.associacao__conteudo {
+  position: relative;
+  z-index: 1;
+  padding-left: 0.5rem;
+  max-width: 640px;
+}
+
+.associacao .icone--grande {
+  width: 46px;
+  height: 46px;
+}
+
+.associacao__titulo {
+  margin-top: var(--esp-sm);
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+}
+
+.associacao__texto {
+  margin-top: 0.85rem;
+  max-width: 44ch;
+  font-size: 1.05rem;
+  color: #d3d2cf;
+}
+
+.associacao .botao {
+  margin-top: var(--esp-md);
+  padding: 0.85rem 1.7rem;
+  font-size: 0.92rem;
+}
+
+/* --------------------------------------------------------------------------
+   Atendimento a empresas
+   -------------------------------------------------------------------------- */
+.empresas {
+  border-bottom: 1px solid var(--cor-linha);
+}
+
+.empresas__grade {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.empresas__apresentacao {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 420px;
+  padding: var(--esp-lg) 3rem;
+  overflow: hidden;
+}
+
+.empresas__fundo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.empresas__fundo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.empresas__fundo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(13, 13, 13, 0.9) 0%,
+    rgba(13, 13, 13, 0.72) 55%,
+    rgba(13, 13, 13, 0.5) 100%
+  );
+}
+
+.empresas__conteudo {
+  position: relative;
+  z-index: 1;
+}
+
+.empresas__rotulo {
+  margin-bottom: 0.6rem;
+  color: var(--cor-vermelho);
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.empresas__titulo {
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+
+.empresas__subtitulo {
+  display: block;
+  font-size: 0.6em;
+  color: var(--cor-vermelho);
+}
+
+.empresas__texto {
+  margin-top: var(--esp-sm);
+  max-width: 40ch;
+  color: #d3d2cf;
+}
+
+/* Painel branco com corte diagonal na borda esquerda, sobrepondo a foto */
+.empresas__diferenciais {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--esp-md);
+  padding: var(--esp-lg) 3rem var(--esp-lg) 9rem;
+  margin-left: -90px;
+  background-color: var(--cor-branco);
+  color: #161616;
+  clip-path: polygon(90px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* --------------------------------------------------------------------------
+   Contato
+   -------------------------------------------------------------------------- */
+.contato__grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--esp-lg);
+}
+
+.contato__dados {
+  align-self: center;
+}
+
+.contato__item {
+  padding-block: var(--esp-sm);
+  border-bottom: 1px solid var(--cor-linha);
+}
+
+.contato__item:first-child {
+  padding-top: 0;
+}
+
+.contato__rotulo {
+  margin-bottom: 0.3rem;
+  color: var(--cor-vermelho);
+  font-size: 0.9rem;
+}
+
+.contato__valor {
+  color: #d3d2cf;
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Rodapé
+   -------------------------------------------------------------------------- */
+.rodape {
+  padding-top: var(--esp-md);
+}
+
+.rodape__topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-md);
+  padding-bottom: var(--esp-md);
+}
+
+.rodape__slogan {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.rodape__chamada {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.4rem;
+  border: 1.5px solid var(--cor-vermelho);
+  border-radius: var(--raio);
+}
+
+.rodape__chamada-titulo {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.rodape__chamada-texto {
+  font-size: 0.78rem;
+  color: var(--cor-cinza);
+}
+
+.rodape__selos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding-block: var(--esp-md);
+  border-top: 1px solid var(--cor-linha);
+  font-size: 0.8rem;
+  color: var(--cor-cinza);
+}
+
+.rodape__selo {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-xs);
+}
+
+.rodape__legal {
+  padding-block: var(--esp-sm);
+  border-top: 1px solid var(--cor-linha);
+  text-align: center;
+  font-size: var(--texto-xs);
+  color: var(--cor-cinza);
+}
+
+/* ==========================================================================
+   Responsivo
+   ========================================================================== */
+
+@media (max-width: 1000px) {
+  .servicos__grade {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --esp-xl: 3.5rem;
+    --esp-lg: 2.25rem;
+    --gutter: 1.25rem;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--cor-preto);
+    border-bottom: 1px solid var(--cor-linha);
+  }
+
+  .menu[hidden] {
+    display: none;
+  }
+
+  .menu__lista {
+    flex-direction: column;
+    gap: 0;
+    padding: var(--esp-sm) var(--gutter);
+  }
+
+  .menu__link {
+    display: block;
+    padding-block: 0.8rem;
+    border-bottom: 1px solid var(--cor-linha);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .empresas__grade,
+  .contato__grade {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 460px;
+  }
+
+  .hero__fundo::after {
+    background: linear-gradient(
+      180deg,
+      rgba(13, 13, 13, 0.75) 0%,
+      rgba(13, 13, 13, 0.92) 100%
+    );
+  }
+
+  .empresas__apresentacao {
+    min-height: 320px;
+    padding: var(--esp-lg) var(--gutter);
+    border-bottom: 1px solid var(--cor-linha);
+  }
+
+  .empresas__fundo::after {
+    background: linear-gradient(
+      180deg,
+      rgba(13, 13, 13, 0.55) 0%,
+      rgba(13, 13, 13, 0.88) 100%
+    );
+  }
+
+  .empresas__diferenciais {
+    margin-left: 0;
+    padding: var(--esp-lg) var(--gutter);
+    clip-path: none;
+  }
+
+  .rodape__selos {
+    gap: var(--esp-md);
+  }
+}
+
+@media (max-width: 560px) {
+  .servicos__grade {
+    grid-template-columns: 1fr;
+  }
+
+  .titulo-secao__traco {
+    display: none;
+  }
+
+  .rodape__topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
