@@ -54,10 +54,6 @@
   color: var(--cor-branco);
 }
 
-.cabecalho__interno > .botao--solido {
-  display: none;
-}
-
 /* --------------------------------------------------------------------------
    Hero
    -------------------------------------------------------------------------- */
@@ -469,6 +465,12 @@
 
   .menu-toggle {
     display: block;
+  }
+
+  /* No mobile o botão flutuante de WhatsApp já cobre essa ação;
+     evita apertar o cabeçalho junto com o menu hambúrguer. */
+  .cabecalho__interno > .botao--solido {
+    display: none;
   }
 
   .empresas__grade,
